@@ -5,22 +5,16 @@
 COURSE_URL="https://whop.com/joined/ai-commerce-academy/course-If4VUeGusgAQIw/app/courses/cors_PrX4f8qPiqK2Z/lessons/lesn_2WOE966AwyLT1tb92Z8WDq/"
 OUTPUT_DIR="/home/user/Nath/course_downloads"
 ZIP_FILE="/home/user/Nath/course_videos.zip"
-COOKIES_FILE="${1:-}"  # Pass cookies file as first argument
+COOKIES_FILE="${1:-$HOME/Downloads/whop.com_cookies}"
 
-if [ -z "$COOKIES_FILE" ]; then
-    echo "Usage: $0 <cookies-file>"
-    echo ""
-    echo "How to export cookies:"
-    echo "  1. Install the 'Get cookies.txt LOCALLY' extension in Chrome/Firefox"
-    echo "  2. Log in to whop.com in your browser"
-    echo "  3. Navigate to the course page"
-    echo "  4. Click the extension and export cookies as 'cookies.txt'"
-    echo "  5. Run: $0 /path/to/cookies.txt"
-    echo ""
-    echo "Alternative - use browser cookies directly (Chrome):"
-    echo "  $0 --cookies-from-browser chrome"
+if [ ! -f "$COOKIES_FILE" ]; then
+    echo "ERROR: Cookies file not found at: $COOKIES_FILE"
+    echo "Please ensure 'whop.com_cookies' is in your Downloads folder, or pass the path as an argument:"
+    echo "  $0 /path/to/whop.com_cookies"
     exit 1
 fi
+
+echo "==> Using cookies file: $COOKIES_FILE"
 
 mkdir -p "$OUTPUT_DIR"
 
