@@ -5,12 +5,12 @@
 COURSE_URL="https://whop.com/joined/ai-commerce-academy/course-If4VUeGusgAQIw/app/courses/cors_PrX4f8qPiqK2Z/lessons/lesn_2WOE966AwyLT1tb92Z8WDq/"
 OUTPUT_DIR="/home/user/Nath/course_downloads"
 ZIP_FILE="/home/user/Nath/course_videos.zip"
-COOKIES_FILE="${1:-$HOME/Downloads/whop.com_cookies}"
+COOKIES_FILE="${1:-/mnt/c/Users/natha/.claude/cookies.txt}"
 
 if [ ! -f "$COOKIES_FILE" ]; then
     echo "ERROR: Cookies file not found at: $COOKIES_FILE"
-    echo "Please ensure 'whop.com_cookies' is in your Downloads folder, or pass the path as an argument:"
-    echo "  $0 /path/to/whop.com_cookies"
+    echo "Expected at: /mnt/c/Users/natha/.claude/cookies.txt"
+    echo "Or pass the path as an argument: $0 /path/to/cookies.txt"
     exit 1
 fi
 
